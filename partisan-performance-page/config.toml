@@ -1,4 +1,4 @@
-baseurl = "http://lasp-lang.github.io"
+baseurl = "http://partisan.cloud"
 languageCode = "en-us"
 title = "Partisan"
 
@@ -7,7 +7,7 @@ title = "Partisan"
     author_url = "http://christophermeiklejohn.com"
     author = "Christopher Meiklejohn"
     project_url = "http://github.com/lasp-lang/partisan"
-    project_documentation = "http://lasp-lang.github.io"
+    project_documentation = "http://partisan.cloud"
     github_project_name = "partisan"
     github_user_name = "lasp-lang"
 
