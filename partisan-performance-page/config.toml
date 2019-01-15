@@ -3,7 +3,7 @@ languageCode = "en-us"
 title = "Partisan"
 
 [params]
-    description = "High-performance geo-distributed Erlang and Elixir"
+    description = "High-Performance Distributed Erlang"
     author_url = "http://christophermeiklejohn.com"
     author = "Christopher Meiklejohn"
     project_url = "http://github.com/lasp-lang/partisan"

@@ -11,34 +11,39 @@
     
     
     <item>
-      <title>First Post</title>
-      <link>http://partisan.cloud/post/first/</link>
+      <title>Introduction</title>
+      <link>http://partisan.cloud/post/intro/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://partisan.cloud/post/first/</guid>
-      <description>First post Where you talk about how to install your project
-brew install amazing-tool  wef wef we f we fw ef</description>
+      <guid>http://partisan.cloud/post/intro/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis ullamcorper ex, in consequat velit. Aenean venenatis purus eget nibh varius, vel efficitur sapien eleifend. Morbi vitae odio tempor diam semper accumsan. Aliquam interdum vel enim eu euismod. Quisque est sem, dapibus eget eros sed, faucibus sodales urna. Etiam tincidunt elit ac odio luctus, sit amet consequat ex mollis. Integer aliquet tempor dolor ut accumsan. Phasellus eleifend neque et blandit eleifend.</description>
     </item>
     
     <item>
-      <title>Second Post</title>
-      <link>http://partisan.cloud/post/second/</link>
+      <title>Microbenchmarks</title>
+      <link>http://partisan.cloud/post/microbenchmarks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://partisan.cloud/post/second/</guid>
-      <description>Second post Usage maybe?
-DoSomething()  And the output would be:
-Something  </description>
+      <guid>http://partisan.cloud/post/microbenchmarks/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis ullamcorper ex, in consequat velit. Aenean venenatis purus eget nibh varius, vel efficitur sapien eleifend. Morbi vitae odio tempor diam semper accumsan. Aliquam interdum vel enim eu euismod. Quisque est sem, dapibus eget eros sed, faucibus sodales urna. Etiam tincidunt elit ac odio luctus, sit amet consequat ex mollis. Integer aliquet tempor dolor ut accumsan. Phasellus eleifend neque et blandit eleifend.</description>
     </item>
     
     <item>
-      <title>Third Post</title>
-      <link>http://partisan.cloud/post/third/</link>
+      <title>Scaling Riak Core: Echo Service</title>
+      <link>http://partisan.cloud/post/throughput-echo/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://partisan.cloud/post/third/</guid>
-      <description>Third post Get help
- Ask questions here &amp;hellip;. Read this doc file Concat me twitter @ifnottrue  </description>
+      <guid>http://partisan.cloud/post/throughput-echo/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis ullamcorper ex, in consequat velit. Aenean venenatis purus eget nibh varius, vel efficitur sapien eleifend. Morbi vitae odio tempor diam semper accumsan. Aliquam interdum vel enim eu euismod. Quisque est sem, dapibus eget eros sed, faucibus sodales urna. Etiam tincidunt elit ac odio luctus, sit amet consequat ex mollis. Integer aliquet tempor dolor ut accumsan. Phasellus eleifend neque et blandit eleifend.</description>
+    </item>
+    
+    <item>
+      <title>Scaling Riak Core: KVS</title>
+      <link>http://partisan.cloud/post/throughput-kvs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://partisan.cloud/post/throughput-kvs/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis ullamcorper ex, in consequat velit. Aenean venenatis purus eget nibh varius, vel efficitur sapien eleifend. Morbi vitae odio tempor diam semper accumsan. Aliquam interdum vel enim eu euismod. Quisque est sem, dapibus eget eros sed, faucibus sodales urna. Etiam tincidunt elit ac odio luctus, sit amet consequat ex mollis. Integer aliquet tempor dolor ut accumsan. Phasellus eleifend neque et blandit eleifend.</description>
     </item>
     
   </channel>

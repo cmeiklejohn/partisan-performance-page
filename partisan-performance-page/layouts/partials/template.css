@@ -29,8 +29,8 @@ body {
 }
 
 .header-container {
-  margin-left: 162px;
-  margin-right: 162px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .header-container h1,
@@ -38,4 +38,14 @@ body {
 .header-container h3,
 .header-container h4 {
   color: {{ .Site.Params.header_text_color }};
+}
+
+.graph {
+  margin: 10px 0px 10px 0px;
+  border: 1px solid #e7e7e7;
+  width: 100%;
+}
+
+.content-section-a, .content-section-b {
+  padding: 30px;
 }

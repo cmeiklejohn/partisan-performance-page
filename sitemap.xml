@@ -3,15 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://partisan.cloud/post/first/</loc>
+    <loc>http://partisan.cloud/post/intro/</loc>
   </url>
   
   <url>
-    <loc>http://partisan.cloud/post/second/</loc>
+    <loc>http://partisan.cloud/post/microbenchmarks/</loc>
   </url>
   
   <url>
-    <loc>http://partisan.cloud/post/third/</loc>
+    <loc>http://partisan.cloud/post/throughput-echo/</loc>
+  </url>
+  
+  <url>
+    <loc>http://partisan.cloud/post/throughput-kvs/</loc>
   </url>
   
   <url>
