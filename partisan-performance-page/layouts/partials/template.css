@@ -49,3 +49,7 @@ body {
 .content-section-a, .content-section-b {
   padding: 30px;
 }
+
+.head-container {
+  border-bottom: 1px solid #e7e7e7;
+}
