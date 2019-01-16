@@ -57,3 +57,7 @@ body {
 p {
   line-height: 24px;   /* within paragraph */
 }
+
+.final {
+  border-top: 1px solid #e7e7e7;
+}
