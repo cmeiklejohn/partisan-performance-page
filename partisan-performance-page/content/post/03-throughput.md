@@ -6,12 +6,12 @@ weight = 3
 +++
 
 To look at read-world applicability, we ported the distributed systems
-framework, Riak Core, to Partisan and built two example applications: (i) a
-simple echo service – an application that’s designed to only be bound by the
-speed of the actor receiving messages and the network itself; and (ii) a
-memory-based key-value store that operates using read/write quorums – more
-representative of a workload where more data is being transmitted and more
-CPU work has to occur.
+framework, [Riak Core](http://www.github.com/basho/riak_core), to Partisan
+and built two example applications: (i) a simple echo service – an
+application that’s designed to only be bound by the speed of the actor
+receiving messages and the network itself; and (ii) a memory-based key-value
+store that operates using read/write quorums – more representative of a
+workload where more data is being transmitted and more CPU work has to occur.
 
 Riak Core is a distributed programming framework written in Erlang and based
 on the Amazon Dynamo system that influenced the design of the distributed
