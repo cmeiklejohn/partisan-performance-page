@@ -3,19 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://partisan.cloud/post/intro/</loc>
+    <loc>http://partisan.cloud/post/01-intro/</loc>
   </url>
   
   <url>
-    <loc>http://partisan.cloud/post/microbenchmarks/</loc>
+    <loc>http://partisan.cloud/post/02-microbenchmarks/</loc>
   </url>
   
   <url>
-    <loc>http://partisan.cloud/post/throughput-echo/</loc>
+    <loc>http://partisan.cloud/post/03-throughput/</loc>
   </url>
   
   <url>
-    <loc>http://partisan.cloud/post/throughput-kvs/</loc>
+    <loc>http://partisan.cloud/post/04-scaling/</loc>
+  </url>
+  
+  <url>
+    <loc>http://partisan.cloud/post/05-conclusion/</loc>
   </url>
   
   <url>
