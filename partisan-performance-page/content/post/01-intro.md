@@ -1,7 +1,7 @@
 +++
 date = "2015-12-2T14:10:00+03:00"
 draft = false
-title = "Motivation"
+title = "Partisan"
 weight = 1
 +++
 
