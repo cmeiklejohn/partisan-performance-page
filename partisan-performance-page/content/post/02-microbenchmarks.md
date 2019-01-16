@@ -9,12 +9,11 @@ Each of the microbenchmarks run multiple configurations of Partisan under
 both increasing latency and payload size, with a fixed number of 10,000
 messages per experiment. At the start of each experiment for our
 microbenchmarks, N actors are spawned on each of two instances of the Erlang
-VM (unless otherwise specified, as in Figure 2), based on the desired
-concurrency level. Each actor will send a single message to an actor on the
-other node and wait for acknowledgement before proceeding. Experiments were
-run using the full-mesh overlay, but the optimizations are implemented for
-all overlays. Latency is reported as the time to send a single message from
-the source to the destination.
+VM, based on the desired concurrency level. Each actor will send a single
+message to an actor on the other node and wait for acknowledgement before
+proceeding. Experiments were run using the full-mesh overlay, but the
+optimizations are implemented for all overlays. Latency is reported as the
+time to send a single message from the source to the destination.
 
 We start by showing a baseline configuration of Distributed Erlang compared
 with Partisan with all optimization enabled. Our results show that leveraging
