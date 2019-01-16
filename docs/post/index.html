@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <base href="http://partisan.cloud">
+    <title>Posts</title>
+
+    
+    <link type="text/css" href="/css/bootstrap.min.css" rel="stylesheet">
+
+    
+    <link type="text/css" href="/css/landing-page.css" rel="stylesheet">
+
+    
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <style>
+    .navbar {
+    border-color: #e7e7e7;
+}
+
+.content-section-a,
+footer,
+.navbar {
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+.navbar a:link,
+.navbar-default .navbar-nav>li>a {
+  color: #777;
+}
+
+.navbar a:hover,
+.navbar-default .navbar-nav>li>a:hover {
+  color: rgb(51, 51, 51);
+}
+
+.content-section-b {
+  background-color: white;
+  color: #333;
+}
+
+body {
+  color: rgb(51, 51, 51);
+}
+
+.header-container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-container h1,
+.header-container h2,
+.header-container h3,
+.header-container h4 {
+  color: rgb(51, 51, 51);
+}
+
+.graph {
+  margin: 10px 0px 10px 0px;
+  border: 1px solid #e7e7e7;
+  width: 100%;
+}
+
+.content-section-a, .content-section-b {
+  padding: 30px;
+}
+
+.head-container {
+  border-bottom: 1px solid #e7e7e7;
+}
+
+p {
+  line-height: 24px;   /* within paragraph */
+}
+  </style>
+
+</head>
+<body>
+
+<section id="intro">
+	
+	<div class="intro-header head-container">
+
+		<div class="container">
+
+			<div class="row">
+				<div class="intro-image col-md-4"></div>
+				<div class="intro-message col-md-6">
+					<h1>Partisan</h1>
+					<h3>High-Performance Distributed Erlang</h3>
+
+					
+					
+					
+
+					<iframe class="github-btn" src="https://ghbtns.com/github-btn.html?user=lasp-lang&repo=partisan&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+					
+
+					<hr class="intro-divider">
+				</div>
+			</div>
+
+		</div>
+		
+
+	</div>
+	
+</section>
+
+<section id="services">
+
+
+ 
+    
+    <div class="content-section-a">
+    
+
+        <div class="container">
+
+            <div class="row">
+                <div>
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Partisan</h2>
+                    <p>Partisan is the the design of an alternative runtime system for improved
+scalability and reduced latency in actor applications.</p>
+
+<p>Partisan provides:</p>
+
+<ul>
+<li><strong>Better scalability</strong> by leveraging different network topologies for communication</li>
+<li><strong>Reduced latency</strong> through efficient parallel message scheduling for actor-to-actor communication</li>
+</ul>
+
+<p>Partisan is provided as a user library in Erlang and achieves up to an order
+of magnitude increase in the number of nodes the system can scale to through
+runtime overlay selection, up to a 34.96x increase in throughput, and up to a
+13.4x reduction in latency over Distributed Erlang.</p>
+
+                </div>
+            </div>
+
+        </div>
+        
+
+    </div>
+
+    
+    <div class="content-section-b">
+    
+
+        <div class="container">
+
+            <div class="row">
+                <div>
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Microbenchmarks</h2>
+                    <p>Each of the microbenchmarks run multiple configurations of Partisan under
+both increasing latency and payload size, with a fixed number of 10,000
+messages per experiment. At the start of each experiment for our
+microbenchmarks, N actors are spawned on each of two instances of the Erlang
+VM, based on the desired concurrency level. Each actor will send a single
+message to an actor on the other node and wait for acknowledgement before
+proceeding. Experiments were run using the full-mesh overlay, but the
+optimizations are implemented for all overlays. Latency is reported as the
+time to send a single message from the source to the destination.</p>
+
+<p>We start by showing a baseline configuration of Distributed Erlang compared
+with Partisan with all optimization enabled. Our results show that leveraging
+additional connections and affinitizing communication increases performance
+regardless of concurrency. With 128 actors, 512KB payload, and 1ms RTT,
+Partisan with affinitized parallelism performs 1.9x better than Distributed
+Erlang.</p>
+
+<p><img src="img/microbenchmarks.JPG" alt="Microbenchmarks" class="graph" /></p>
+
+<p>What happens if we don’t have such favorable network conditions? What if our
+application is spread out between two AWS availability zones and suffers from
+RTTs closer to 20ms instead? We show the effects of running our earlier
+experiment this time with a 20ms RTT latency between actors located on
+different nodes. As we can see, as the latency increases, the system can take
+advantage of more communications channels to parallelize inter-actor
+communication on the network. With 128 actors, 512KB payload, and 20ms RTT,
+Partisan with affinitized parallelism performs 13.4x better than Distributed
+Erlang.</p>
+
+<p><img src="img/microbenchmarks-highlatency.JPG" alt="Microbenchmarks: High Latency" class="graph" /></p>
+
+<p>In the Erlang community, large message sizes are not uncommon. Consider
+<a href="http://www.github.com/basho/riak">Riak</a>, the distributed key-value store
+which could contain user-stored and arbitrary-sized data. An Erlang message
+then could contain a user-provided piece of data megabytes in size. However,
+it’s well-known in the Erlang community that Distributed Erlang doesn’t
+handle large message sizes well. In fact, the Riak documentation suggests to
+avoid storing objects larger than 1-2MB due to the performance degradation
+that occurs due to Distributed Erlang. Cognizant of this, we turn our
+attention to question of how large payload size affects performance in
+Partisan. Can Partisan overcome some of the performance issues faced by
+Distributed Erlang in the face of large payloads?</p>
+
+<p>We explore the effects of increasing payload size on Partisan as compared to
+Distributed Erlang. Keeping in line with the community-observed limits of
+Distributed Erlang, we vary the message size from 512kb (below the 1MB
+performance degradation threshold) to 8MB (far above the 1MB performance
+degradation threshold). With 128 actors, 8MB payload, and 1ms RTT, Partisan
+with affinitized parallelism performs 3.7x better than Distributed Erlang!</p>
+
+<p><img src="img/microbenchmarks-largepayload.JPG" alt="Microbenchmarks: Large Payload" class="graph" /></p>
+
+                </div>
+            </div>
+
+        </div>
+        
+
+    </div>
+
+    
+    <div class="content-section-a">
+    
+
+        <div class="container">
+
+            <div class="row">
+                <div>
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Scaling Riak Core</h2>
+                    <p>To look at read-world applicability, we ported the distributed systems
+framework, <a href="http://www.github.com/basho/riak_core">Riak Core</a>, to Partisan
+and built two example applications: (i) a simple echo service – an
+application that’s designed to only be bound by the speed of the actor
+receiving messages and the network itself; and (ii) a memory-based key-value
+store that operates using read/write quorums – more representative of a
+workload where more data is being transmitted and more CPU work has to occur.</p>
+
+<p>Riak Core is a distributed programming framework written in Erlang and based
+on the Amazon Dynamo system that influenced the design of the distributed
+database Riak, Apache Cassandra, and the distributed actor framework Akka. In
+Riak Core, a distributed hash table is used to partition a hash space across
+a cluster of nodes. These virtual nodes—the division of the hash space into N
+partitions—are claimed by a node in the cluster, and the resulting ownership
+is stored in a data structure known as the ring that is periodically gossiped
+to all nodes in the cluster. Requests for a given key are routed to a node in
+the cluster based on the current partitioning of virtual nodes to cluster
+nodes in the ring structure using consistent hashing, which minimizes the
+impact of reshuffling when nodes join and leave the cluster. Background
+processes are used for cluster maintenance; ownership handoff, (transferring
+virtual node ownership) metadata anti-entropy (an internal KVS for
+configuration metadata) and ring gossip (information about the cluster’s
+virtual node to node mapping).</p>
+
+<p>Our first application is a simple echo service, implemented on a three node
+Riak Core cluster. For each request, we generate a binary object, uniformly
+select a partition to send the request to, and wait for a reply containing
+the original message before issuing the next request. Binary objects are
+generated for two payload sizes, 512KB and 8MB. Concurrency is increased
+during the test execution and parallelism is configured at 16. We test two
+latency configurations: 1ms (representative of single-AZ, single-region) and
+20ms (representative of multi-AZ, single region.) We run a fixed duration of
+120 seconds.</p>
+
+<p>We first demonstrate that with 128 actors, 1ms RTT, and large payloads (8MB),
+Partisan is 3.10x faster than Distributed Erlang. With smaller payloads
+(512KB), Partisan is on par with Distributed Erlang (1.01x).</p>
+
+<p><img src="img/echo-1ms.JPG" alt="Echo Service: 1ms" class="graph" /></p>
+
+<p>We also demonstrate that with 128 actors, 20ms RTT, and larger payloads
+(8MB), Partisan is 34.96x faster than Distributed Erlang (which achieves only
+5 ops/second before reaching peak throughput). With smaller payloads (512KB),
+Partisan is 7.21x faster than Distributed Erlang.</p>
+
+<p><img src="img/echo-20ms.JPG" alt="Echo Service: 20ms" class="graph" /></p>
+
+<p>Our second application is a memory-based key-value store, similar to the Riak
+database, implemented on a three node Riak Core cluster.</p>
+
+<p>Each key is hashed and mapped to a virtual node using the ring structure that
+is gossiped in the cluster. The virtual node that the key is hashed to, along
+with that virtual nodes’s two clockwise neighbors on the ring, represent the
+three virtual nodes that contain the three replicas for the data item. Each
+request (either a get operation or put operation) to the keyvalue store uses
+a quorum request pattern, where requests are made to these three replicas,
+and the response is returned to the user when a majority (2 out of 3)
+replicas reply.</p>
+
+<p>This pattern involves multiple nodes in the request path, and each partition
+simulates a 1ms storage delay in the request path. We reuse the
+aforementioned benchmarking strategy: test execution is fixed at 120 seconds.</p>
+
+<p>For each request, we draw a key from a normal distribution across 10,000 keys
+and run the key through Riak Core’s consistent hashing algorithm for
+placement. The consistent hashing placement algorithm aims for uniform
+partitioning of keys across the cluster. We use a 10:1 read/write ratio for
+the experimental workload. Concurrency is varied in our experiments (x-axis)
+and parallelism is configured at 16. We test two latency configurations: 1ms,
+and 20ms.</p>
+
+<p>We present the results of the 1ms RTT KVS experiment. Under workloads that
+are CPU-bound, where the network is not congested nor contended for,
+Distributed Erlang can outperform Partisan for small payloads, but
+underperforms Partisan for large payloads. Distributed Erlang can overperform
+Partisan in the case of small payloads because of (i) the impact of
+scheduling overhead for Partisan; and (ii) its placement in the Erlang VM,
+which minimizes the cost of a given message send. However, as the size of
+both payloads and latency increases, the benefits of Partisan becomes
+apparent. In this experiment, with 128 actors, 1ms RTT, and large payloads
+(8MB), Partisan is 1.4x faster than Distributed Erlang, while with smaller
+payloads (512KB), Partisan on par with Distributed Erlang (0.96x). However,
+these dynamics change markedly in less favorable network conditions.</p>
+
+<p><img src="img/kvs-1ms.JPG" alt="KVS Service: 1ms" class="graph" /></p>
+
+<p>We present the results of the 20ms RTT KVS experiment. Here, we see that
+Partisan optimizations allow for better performance in terms of latency and
+throughput, whereas Distributed Erlang loses performance as concurrency
+increases. In this experimet, with 128 actors, 20ms RTT and smaller payloads
+(512KB), Partisan is 1.8x faster than Distributed Erlang. As we increase the
+payload size, Distributed Erlang surprises us. Under larger payloads (8MB),
+Partisan far exceeds the performance of Distributed Erlang, achieving 95
+ops/second; Distributed Erlang can only complete 1 operation during the
+entire 120s execution with 128 actors, and only 3 operations during the
+entire execution with 64 actors!</p>
+
+<p><img src="img/kvs-20ms.JPG" alt="KVS Service: 20ms" class="graph" /></p>
+
+                </div>
+            </div>
+
+        </div>
+        
+
+    </div>
+
+    
+    <div class="content-section-b">
+    
+
+        <div class="container">
+
+            <div class="row">
+                <div>
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Cluster Scalability: Lasp</h2>
+                    <p><a href="http://www.github.com/lasp-lang/lasp">Lasp</a> is a programming framework
+designed for large scale coordination-free programming. Applications in Lasp
+are written using shared state; this shared state is stored in an underlying
+key-value store and is replicated between all nodes. Applications modify
+their own replica and propagate the effects of their changes to their peers.
+Lasp ensures that applications converge to the same result on every node
+through the use of data structures known as Conflict-Free Replicated Data
+Types, combined with monotone programming. For our Lasp evaluation, the
+application is a simulated advertisement counter, modeled after the Rovio
+advertisement counter scenario for Angry Birds. In this application, each
+client keeps a replica of a grow-only distributed counterissuing increment
+operations when an advertisement is displayed. Once a certain number of
+impressions is reached, the advertisement is disabled. The increment interval
+was fixed at 10s, and the propagation interval for the counter was fixed at
+5s. The total number of impressions was configured to ensure that the
+experiment would run for 30 minutes under all configurations. The evaluation
+is performed on both the client-server and peer-to-peer overlays for
+different cluster sizes, ranging from 32 all the way up to 1,024 node
+clusters.</p>
+
+<p>For both overlays, the system propagates the full state of the counter to the
+node’s peers at each propagation interval. Note that since the Rovio
+advertisement counter scenario was designed for mobile applications, we do
+not run the fullmesh topology because it would be unrealistic. That is, in
+the context of mobile apps, clients would not connect to all other nodes, nor
+will they have knowledge of who all of the clients in the system are. Rather,
+either mobile apps will communicate with some number of nearby peers
+(peer-to-peer) or they will communicate through a server (client-server).
+Clientserver also serves as the standard model of deploying mobile
+applications today. Thus, we designed our experiments to reflect this—we
+examine client-server and peer-to-peer overlays for this application in our
+experiments.</p>
+
+<p>We present the total data transmission required for the experiment to finish
+as we scale the size of the cluster from 32 to 1024 nodes. For smaller
+clusters of nodes, client-server is the more efficient overlay in terms of
+the amount of data that must be transmitted to finish the experiment. This
+improved efficiency comes at a cost, however, as the client-server
+configuration is unable to scale beyond 256 nodes. Beyond 256 nodes, the
+cilent-server experiments could not be completed; as the Erlang VM has
+unbounded queues, when the server cannot process incoming messages quickly
+enough, the VM allocates all available memory, leading to termination of the
+Erlang VM by the Linux OOM Killer. Peer-to-peer is more resilient in the face
+of a node failure allowing it to support larger clusters of nodes—up to 1024!
+However, peer-to-peer is less efficient due to this—the redundancy of
+communication links used by the overlay causes it to transmit more data in
+order to complete the experiments.</p>
+
+<p><img src="img/scale.JPG" alt="Cluster Scalability" class="graph" /></p>
+
+<p>Perhaps the most interesting takeaway from the results of this real-world
+large-scale experiment is that the experiment was even possible at all with
+Erlang. As Distributed Erlang permits one to only use a full-mesh overlay,
+it’s possible that the previous results observed by Ericsson on the maximum
+size of Erlang clusters–only 200 nodes–are due to this full-mesh-only
+restriction. This experiment suggests that Partisan may enable the
+development of new applications with actors systems that have not been
+previously possible by enabling the application developer to dynamically
+change the pattern of communication between nodes, without altering
+application semantics. Perhaps the lack of mobile applications written using
+distributed actor systems is a symptom of the full-mesh-only restriction.
+Similarly, this observation may also hold true for the emerging class of
+“Internet of Things” applications.</p>
+
+                </div>
+            </div>
+
+        </div>
+        
+
+    </div>
+
+    
+    <div class="content-section-a">
+    
+
+        <div class="container">
+
+            <div class="row">
+                <div>
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Availability</h2>
+                    <p>Partisan&rsquo;s design choices assume a lowest-common-denominator strategy: these optimizations should be beneficial for any of the major distributed actor systems: Distributed Erlang, Scala&rsquo;s Akka, or Microsoft&rsquo;s Orleans.  However, if you&rsquo;re using Erlang or Elixir, you can take advantage of Partisan immediately using our library-based reference implementation available on GitHub!</p>
+
+                </div>
+            </div>
+
+        </div>
+        
+
+    </div>
+
+
+</section>
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                
+                <p class="copyright text-muted small">Copyright &copy; Christopher Meiklejohn. All Rights Reserved.</p>
+            </div>
+            <div class="col-md-4">
+		Built with <a href="http://gohugo.io">Hugo</a> <br /> and the
+		<a href="https://github.com/swiftline/github-project-landing-page">GitHub project Page</a>
+		theme.
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="/js/jquery-1.11.0.js"></script>
+
+
+<script src="/js/jquery.easing.min.js"></script>
+
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<script src="js/landing-page.js"></script>
+
+
+
+</body>
+</html>
+
