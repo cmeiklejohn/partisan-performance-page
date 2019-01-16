@@ -37,7 +37,7 @@ Erlang.
 
 <img src="img/microbenchmarks-highlatency.JPG" alt="Microbenchmarks: High Latency" class="graph" />
 
-In the Erlang community, large message sizes are not uncommon. Consider again
+In the Erlang community, large message sizes are not uncommon. Consider 
 Riak, the distributed key-value store which could contain user-stored and
 arbitrary-sized data. An Erlang message then could contain a user-provided
 piece of data megabytes in size. However, it’s well-known in the Erlang
