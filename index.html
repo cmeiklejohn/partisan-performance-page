@@ -223,16 +223,16 @@ Erlang.</p>
 <p><img src="img/microbenchmarks-highlatency.JPG" alt="Microbenchmarks: High Latency" class="graph" /></p>
 
 <p>In the Erlang community, large message sizes are not uncommon. Consider
-Riak, the distributed key-value store which could contain user-stored and
-arbitrary-sized data. An Erlang message then could contain a user-provided
-piece of data megabytes in size. However, it’s well-known in the Erlang
-community that Distributed Erlang doesn’t handle large message sizes well. In
-fact, the Riak documentation suggests to avoid storing objects larger than
-1-2MB due to the performance degradation that occurs due to Distributed
-Erlang. Cognizant of this, we turn our attention to question of how large
-payload size affects performance in Partisan. Can Partisan overcome some of
-the performance issues faced by Distributed Erlang in the face of large
-payloads?</p>
+<a href="http://www.github.com/basho/riak">Riak</a>, the distributed key-value store
+which could contain user-stored and arbitrary-sized data. An Erlang message
+then could contain a user-provided piece of data megabytes in size. However,
+it’s well-known in the Erlang community that Distributed Erlang doesn’t
+handle large message sizes well. In fact, the Riak documentation suggests to
+avoid storing objects larger than 1-2MB due to the performance degradation
+that occurs due to Distributed Erlang. Cognizant of this, we turn our
+attention to question of how large payload size affects performance in
+Partisan. Can Partisan overcome some of the performance issues faced by
+Distributed Erlang in the face of large payloads?</p>
 
 <p>We explore the effects of increasing payload size on Partisan as compared to
 Distributed Erlang. Keeping in line with the community-observed limits of
@@ -380,24 +380,25 @@ entire execution with 64 actors!</p>
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <h2 class="section-heading">Cluster Scalability: Lasp</h2>
-                    <p>Lasp is a programming framework designed for large scale coordination-free
-programming. Applications in Lasp are written using shared state; this shared
-state is stored in an underlying key-value store and is replicated between
-all nodes. Applications modify their own replica and propagate the effects of
-their changes to their peers. Lasp ensures that applications converge to the
-same result on every node through the use of data structures known as
-Conflict-Free Replicated Data Types, combined with monotone programming. For
-our Lasp evaluation, the application is a simulated advertisement counter,
-modeled after the Rovio advertisement counter scenario for Angry Birds. In
-this application, each client keeps a replica of a grow-only distributed
-counterissuing increment operations when an advertisement is displayed. Once
-a certain number of impressions is reached, the advertisement is disabled.
-The increment interval was fixed at 10s, and the propagation interval for the
-counter was fixed at 5s. The total number of impressions was configured to
-ensure that the experiment would run for 30 minutes under all configurations.
-The evaluation is performed on both the client-server and peer-to-peer
-overlays for different cluster sizes, ranging from 32 all the way up to 1,024
-node clusters.</p>
+                    <p><a href="http://www.github.com/lasp-lang/lasp">Lasp</a> is a programming framework
+designed for large scale coordination-free programming. Applications in Lasp
+are written using shared state; this shared state is stored in an underlying
+key-value store and is replicated between all nodes. Applications modify
+their own replica and propagate the effects of their changes to their peers.
+Lasp ensures that applications converge to the same result on every node
+through the use of data structures known as Conflict-Free Replicated Data
+Types, combined with monotone programming. For our Lasp evaluation, the
+application is a simulated advertisement counter, modeled after the Rovio
+advertisement counter scenario for Angry Birds. In this application, each
+client keeps a replica of a grow-only distributed counterissuing increment
+operations when an advertisement is displayed. Once a certain number of
+impressions is reached, the advertisement is disabled. The increment interval
+was fixed at 10s, and the propagation interval for the counter was fixed at
+5s. The total number of impressions was configured to ensure that the
+experiment would run for 30 minutes under all configurations. The evaluation
+is performed on both the client-server and peer-to-peer overlays for
+different cluster sizes, ranging from 32 all the way up to 1,024 node
+clusters.</p>
 
 <p>For both overlays, the system propagates the full state of the counter to the
 node’s peers at each propagation interval. Note that since the Rovio

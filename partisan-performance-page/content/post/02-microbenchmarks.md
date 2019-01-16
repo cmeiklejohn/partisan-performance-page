@@ -36,17 +36,17 @@ Erlang.
 
 <img src="img/microbenchmarks-highlatency.JPG" alt="Microbenchmarks: High Latency" class="graph" />
 
-In the Erlang community, large message sizes are not uncommon. Consider 
-Riak, the distributed key-value store which could contain user-stored and
-arbitrary-sized data. An Erlang message then could contain a user-provided
-piece of data megabytes in size. However, it’s well-known in the Erlang
-community that Distributed Erlang doesn’t handle large message sizes well. In
-fact, the Riak documentation suggests to avoid storing objects larger than
-1-2MB due to the performance degradation that occurs due to Distributed
-Erlang. Cognizant of this, we turn our attention to question of how large
-payload size affects performance in Partisan. Can Partisan overcome some of
-the performance issues faced by Distributed Erlang in the face of large
-payloads?
+In the Erlang community, large message sizes are not uncommon. Consider
+[Riak](http://www.github.com/basho/riak), the distributed key-value store
+which could contain user-stored and arbitrary-sized data. An Erlang message
+then could contain a user-provided piece of data megabytes in size. However,
+it’s well-known in the Erlang community that Distributed Erlang doesn’t
+handle large message sizes well. In fact, the Riak documentation suggests to
+avoid storing objects larger than 1-2MB due to the performance degradation
+that occurs due to Distributed Erlang. Cognizant of this, we turn our
+attention to question of how large payload size affects performance in
+Partisan. Can Partisan overcome some of the performance issues faced by
+Distributed Erlang in the face of large payloads?
 
 We explore the effects of increasing payload size on Partisan as compared to
 Distributed Erlang. Keeping in line with the community-observed limits of
