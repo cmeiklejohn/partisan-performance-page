@@ -23,22 +23,12 @@
   </url>
   
   <url>
-    <loc>http://partisan.cloud/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://partisan.cloud/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://partisan.cloud/post/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://partisan.cloud/tags/</loc>
     <priority>0</priority>
   </url>
   
