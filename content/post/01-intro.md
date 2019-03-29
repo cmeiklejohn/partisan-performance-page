@@ -17,3 +17,5 @@ Partisan is provided as a user library in Erlang and achieves up to an order
 of magnitude increase in the number of nodes the system can scale to through
 runtime overlay selection, up to a 34.96x increase in throughput, and up to a
 13.4x reduction in latency over Distributed Erlang.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KrwhOkiifQ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
