@@ -5,7 +5,7 @@ title = "Partisan"
 weight = 1
 +++
 
-Partisan is the the design of an alternative runtime system for improved
+Partisan is the design of an alternative runtime system for improved
 scalability and reduced latency in actor applications.
 
 Partisan provides:

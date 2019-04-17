@@ -16,7 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://partisan.cloud/post/01-intro/</guid>
-      <description>Partisan is the the design of an alternative runtime system for improved scalability and reduced latency in actor applications.
+      <description>Partisan is the design of an alternative runtime system for improved scalability and reduced latency in actor applications.
 Partisan provides:
  Better scalability by leveraging different network topologies for communication Reduced latency through efficient parallel message scheduling for actor-to-actor communication  Partisan is provided as a user library in Erlang and achieves up to an order of magnitude increase in the number of nodes the system can scale to through runtime overlay selection, up to a 34.</description>
     </item>
